@@ -7,9 +7,23 @@
 using namespace std;
 
 void solution(const vector<string> &lines) {
+  int sum = 0;
   for (const string &line : lines) {
-    cout << line << endl;
+    for (char c : line) {
+      if (isdigit(c)) {
+        sum += 10 * (c - '0');
+        break;
+      }
+    }
+    for (auto it = line.rbegin(); it != line.rend(); ++it) {
+      char c = *it;
+      if (isdigit(c)) {
+        sum += c - '0';
+        break;
+      }
+    }
   }
+  cout << sum << endl;
 }
 
 int main() {
